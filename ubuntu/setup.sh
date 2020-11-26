@@ -57,3 +57,13 @@ if [ ! -f "$NORD_TMUX_PLUGIN_DIR/nord.tmux" ]; then
   git clone git@github.com:arcticicestudio/nord-tmux.git $NORD_TMUX_PLUGIN_DIR
 fi
 cp `dirname $0`/tmux.conf ~/.tmux.conf
+
+#setup bashrc
+OH_MY_BASH_DIR=~/.oh-my-bash
+OH_MY_BASH_INITIALIZED_FILE=$OH_MY_BASH_DIR/initialized
+if [ ! -f "$OH_MY_BASH_INITIALIZED_FILE" ]; then
+  git clone git://github.com/ohmybash/oh-my-bash.git $OH_MY_BASH_DIR
+  cp $OH_MY_BASH_DIR/templates/bashrc.osh-template ~/.bashrc
+  echo "bashrc initialized" > $OH_MY_BASH_INITIALIZED_FILE
+  source ~/.bashrc # TODO why does this not work?
+fi
