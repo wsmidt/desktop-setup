@@ -11,6 +11,7 @@
 # - skip installs if file already exists. (example curl installs)
 
 #setup vars
+SCRIPT_DIR=`dirname $0`
 BIN_DIR=~/bin
 LIB_DIR=~/lib
 WORKSPACE_DIR=~/workspace
@@ -20,9 +21,6 @@ DOWNLOAD_DIR=~/Downloads
 mkdir -p $BIN_DIR
 mkdir -p $LIB_DIR
 mkdir -p $WORKSPACE_DIR
-
-#setup keys
-setxkbmap -layout us -option ctrl:nocaps # remap caps lock to ctrl
 
 #install packages
 sudo apt-get install vim -y
@@ -56,14 +54,14 @@ if [ ! -f "$NORD_TMUX_PLUGIN_DIR/nord.tmux" ]; then
   mkdir -p $NORD_TMUX_PLUGIN_DIR
   git clone git@github.com:arcticicestudio/nord-tmux.git $NORD_TMUX_PLUGIN_DIR
 fi
-cp `dirname $0`/tmux.conf ~/.tmux.conf
+cp -f $SCRIPT_DIR/tmux.conf ~/.tmux.conf
 
 #setup bashrc
 OH_MY_BASH_DIR=~/.oh-my-bash
 OH_MY_BASH_INITIALIZED_FILE=$OH_MY_BASH_DIR/initialized
-if [ ! -f "$OH_MY_BASH_INITIALIZED_FILE" ]; then
+if [ ! -d "$OH_MY_BASH_DIR" ]; then
   git clone git://github.com/ohmybash/oh-my-bash.git $OH_MY_BASH_DIR
-  cp $OH_MY_BASH_DIR/templates/bashrc.osh-template ~/.bashrc
-  echo "bashrc initialized" > $OH_MY_BASH_INITIALIZED_FILE
-  source ~/.bashrc # TODO why does this not work?
 fi
+
+cp -f $SCRIPT_DIR/bashrc ~/.bashrc
+source ~/.bashrc
