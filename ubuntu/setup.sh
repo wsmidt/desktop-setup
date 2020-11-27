@@ -53,7 +53,7 @@ sudo apt-get install tmux -y
 NORD_TMUX_PLUGIN_DIR=~/.tmux/themes/nord-tmux
 if [ ! -f "$NORD_TMUX_PLUGIN_DIR/nord.tmux" ]; then
   mkdir -p $NORD_TMUX_PLUGIN_DIR
-  git clone git@github.com:arcticicestudio/nord-tmux.git $NORD_TMUX_PLUGIN_DIR
+  git clone git://github.com/arcticicestudio/nord-tmux.git $NORD_TMUX_PLUGIN_DIR
 fi
 cp -f $SCRIPT_DIR/tmux.conf ~/.tmux.conf
 
