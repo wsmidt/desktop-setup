@@ -9,6 +9,7 @@
 #TODO [wsmidt]
 # - loops (mkdirs, apt-gets, etc...)
 # - skip installs if file already exists. (example curl installs)
+# - the last `source ~/.bashrc` is not working
 
 #setup vars
 SCRIPT_DIR=`dirname $0`

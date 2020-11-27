@@ -102,3 +102,7 @@ source $OSH/oh-my-bash.sh
 
 # Remap caps lock to ctrl
 setxkbmap -layout us -option ctrl:nocaps
+
+#use vim editor by default
+export VISUAL=vim
+export EDITOR="$VISUAL"
