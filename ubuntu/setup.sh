@@ -27,7 +27,7 @@ mkdir -p $WORKSPACE_DIR
 sudo apt-get install vim -y
 sudo apt-get install curl -y
 sudo apt-get install git -y
-sudo apt-get install openjdk-8-jre-headless -y
+sudo apt-get install openjdk-8-jdk-headless -y
 
 #install sbt
 echo "deb https://dl.bintray.com/sbt/debian /" | sudo tee -a /etc/apt/sources.list.d/sbt.list
